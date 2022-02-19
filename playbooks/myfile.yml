@@ -1,0 +1,7 @@
+ lines (5 sloc)  105 Bytes
+   
+---
+- name: i want to create file on all nodes
+  file:
+      path: /home/rohini/rohini.txt
+      state: touch
