@@ -1,0 +1,39 @@
+# loop1
+
+---
+- hosts: ubuntu_webserver
+  become: yes
+  tasks:
+    - name: Create new users
+      user:
+        name: '{{ item }}'
+        state: present
+
+      with_items:
+        - john
+        - mike
+        - andrew
+        
+        
+        
+        
+        
+# loop2 with Name + UID
+
+---
+- hosts: ubuntu_webserver
+  become: yes
+  tasks:
+    - name: Create new users
+      user:
+        name: '{{ item.name }}'
+        uid: '{{ item.uid }}'
+        state: present
+
+      loop:
+        - name: john
+          uid: 1020
+        - name: mike
+          uid: 1030
+        - name: andrew
+          uid: 1040
